@@ -25,4 +25,7 @@
 
 source 'https://rubygems.org'
 gemspec
-gem 'openssl'
+if RUBY_VERSION >= '2.3.0'
+  gem 'openssl'
+  gem 'fiddle'
+end

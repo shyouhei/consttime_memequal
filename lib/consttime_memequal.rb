@@ -25,7 +25,8 @@
 
 dlsym = lambda do |symbol, lib = 'fiddle'|
   begin
-    gem lib and require lib
+    gem lib if RUBY_VERSION >= '2.3.0'
+    require lib
     libc = Fiddle.dlopen nil
     ptr  = libc.sym symbol
     func = Fiddle::Function.new ptr, \
