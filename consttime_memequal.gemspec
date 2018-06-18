@@ -25,7 +25,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = 'consttime_memequal'
-  spec.version       = 1
+  spec.version       = 2
   spec.author        = 'Urabe, Shyouhei'
   spec.email         = 'shyouhei@ruby-lang.org'
   spec.summary       = 'provides consttime_memequal?'

@@ -43,7 +43,7 @@ end
 
 case
 when func = dlsym.call('consttime_memequal') then
-  define_method :consttime_memequal do |this, that, len = this.bytesize|
+  define_method :consttime_memequal? do |this, that, len = this.bytesize|
     src = Fiddle::Pointer.to_ptr this
     dst = Fiddle::Pointer.to_ptr that
     ret = func.call src, dst, len
@@ -56,7 +56,7 @@ when func = dlsym.call('consttime_memequal') then
   end
 
 when func = dlsym.call('timingsafe_memcmp') then
-  define_method :consttime_memequal do |this, that, len = this.bytesize|
+  define_method :consttime_memequal? do |this, that, len = this.bytesize|
     src = Fiddle::Pointer.to_ptr this
     dst = Fiddle::Pointer.to_ptr that
     ret = func.call src, dst, len
@@ -64,7 +64,7 @@ when func = dlsym.call('timingsafe_memcmp') then
   end
 
 when func = dlsym.call('timingsafe_bcmp') then
-  define_method :consttime_memequal do |this, that, len = this.bytesize|
+  define_method :consttime_memequal? do |this, that, len = this.bytesize|
     src = Fiddle::Pointer.to_ptr this
     dst = Fiddle::Pointer.to_ptr that
     ret = func.call src, dst, len
@@ -72,7 +72,7 @@ when func = dlsym.call('timingsafe_bcmp') then
   end
 
 when func = dlsym.call('CRYPTO_memcmp', 'openssl') then
-  define_method :consttime_memequal do |this, that, len = this.bytesize|
+  define_method :consttime_memequal? do |this, that, len = this.bytesize|
     src = Fiddle::Pointer.to_ptr this
     dst = Fiddle::Pointer.to_ptr that
     ret = func.call src, dst, len
