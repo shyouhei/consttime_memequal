@@ -2,7 +2,7 @@
 
 This kind of routine must be provided a priori but [[Feature
 #10098]](https://bugs.ruby-lang.org/issues/10098) is not yet
-implemented.  We have to make glude code for now.
+implemented.  We have to make glue code for now.
 
 ## Provided functionality
 
